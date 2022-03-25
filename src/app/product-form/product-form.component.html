@@ -1,0 +1,46 @@
+ 
+    <!-- toan tu 3 ngoi neu co id thi h1 la chinh sua neu khong(:) them moi-->
+    <h1 *ngIf="id ">Chinh sua san pham {{productDetail.name}}</h1>
+    <h1 *ngIf="id === undefined">Them moi san pham</h1>
+
+<!-- truyen id vao trong ham submit -->
+<p>{{name.invalid| json}}</p>
+<form #productForm="ngForm" action="" (ngSubmit)="onUpdate(productForm.value)"> 
+     <input *ngIf="id" type="hidden" name="id" [(ngModel)]="productDetail.id">
+  
+     <input
+     type="text"
+     placeholder="Ten"
+     name="name"
+     [(ngModel)]="productDetail.name"
+     required
+     #name="ngModel"
+   />
+   <input
+     type="text"
+     placeholder="Mo ta"
+     name="desc"
+     [(ngModel)]="productDetail.desc"
+     minlength="6"
+     #desc="ngModel"
+     />
+   <input
+     type="number"
+     placeholder="Gia"
+     name="price"
+     [(ngModel)]="productDetail.price"
+     min="1"
+     #price="ngModel"
+     >
+ 
+     <div *ngIf="name.invalid && name.errors?.['required']">
+       Tên sp bắt buộc nhập
+     </div>
+     <div *ngIf="desc.invalid && desc.errors?.['minlength']">
+       Mô tả phải từ 6 ký tự trở lên
+     </div>
+     <div *ngIf="price.invalid && price.errors?.['min']">
+       Giá phải lớn hơn 0
+     </div>
+   <button class="btn btn-primary">Submit</button>
+ </form>

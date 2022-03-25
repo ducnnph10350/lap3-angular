@@ -1,0 +1,85 @@
+<p>student works!</p><p class="color-red font-weight-bold" >Danh sach sinh vien</p>
+<p>{{title}}</p>
+<p>{{subTitle}}</p>
+<div class="form-group container">
+  <label for="search">Search</label>
+  <input type="text" name="form-control" id="search" (input)="onSearch($event)">
+  <p>{{searchValue}}</p>
+</div>
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <th>ID</th>
+      <th>Ten</th>
+      <th>Tuoi</th>
+      <th>SDT</th>
+      <th>Email</th>
+      <th>Avatar</th>
+      <th>Hanh dong</th>
+    </thead>
+    <tbody *ngIf="students.length > 0">
+     
+      <tr *ngFor="let student of fillterStudents">
+        <td>{{student.id}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.age}}</td>
+        <td>{{student.phone}}</td>
+        <td>{{student.email}}</td>
+        <td><img [src]="student.img" height="100px" ></td>
+        <td><button (click)="remove(student.id)" class="btn btn-danger">Xoa</button></td>
+        <td><button (click)="onEdit(student.id)" class="btn btn-success">Chinh sua</button></td>
+
+      </tr>
+      <tr *ngFor="let user of users">
+        <td>{{user.id}}</td>
+        <td>{{user.ten}}</td>
+        <td>{{user.nang}}</td>
+        <td>{{user.cao}}</td>
+        <td><img [src]="user.img" height="100px" ></td>
+        <td><button (click)="removes(user.nang)" class="btn btn-danger">Xoa</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="container">
+   <div class="form-group">
+     <p>Add new user</p>
+
+    <div class="form-group">
+    <label for="name">Name</label>  <input type="text" name="" id="name" (input)="onChangeInput($event, 'name')" 
+    [value]="newUser.name"
+    >
+
+    </div>
+    <div class="form-group">
+    <label for="age">Tuoi</label> <input type="text" name="" id="age" (input)="onChangeInput($event, 'age')"
+    [value] = "newUser.age"
+    >
+
+    </div>
+    <div class="form-group">
+    <label for="phone">SDT</label> <input type="text" name="" id="phone" (input)="onChangeInput($event, 'phone')"
+    [value] = "newUser.phone"
+    >
+
+    </div>
+    <div class="form-group">
+    <label for="email">Email</label> <input type="text" name="" id="email" (input)="onChangeInput($event, 'email')"
+    [value] = "newUser.email"
+    >
+
+    </div>
+    <div class="form-group">
+      <label for="email">Avatar</label> <input type="text" name="" id="email" (input)="onChangeInput($event, 'img')"
+      [value] = "newUser.img"
+      >
+  
+      </div>
+    <button 
+    [disabled] = "!onValidate(newUser)"
+    (click)="onSubmit()"
+     class="btn btn-primary">Submit</button>
+   </div>
+     
+ 
+  </div>
+</div>

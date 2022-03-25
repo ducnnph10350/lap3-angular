@@ -3,16 +3,44 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './login/login.component';
+//FormsModule duoc su dung de tuong tac voi form cua angular
+import { FormsModule } from '@angular/forms';
+import { ProductComponent } from './product/product.component';
+import { StudentComponent } from './student/student.component';
+import { ProductService } from './services/product.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductFormComponent } from './product-form/product-form.component';
+import { RouterModule } from '@angular/router';
+import { LayoutComponent } from './layout/layout/layout.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { AsideComponent } from './layout/aside/aside.component';
+import { FooterComponent } from './layout/footer/footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    ProductComponent,
+    StudentComponent,
+    ProductDetailComponent,
+    ProductFormComponent,
+    LayoutComponent,
+    HeaderComponent,
+    AsideComponent,
+    FooterComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    FormsModule, //import cho cac component con su dung duoc
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

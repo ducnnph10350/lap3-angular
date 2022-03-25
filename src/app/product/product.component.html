@@ -1,0 +1,70 @@
+<div class="container">
+    <p>{{productForm.value | json}}</p>
+    <p>{{newProduct | json}}</p>
+    <div class="col md-12">
+        <a [routerLink]="['/product/create']"><button>Tao Moi</button></a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <form #productForm="ngForm" action="" class="form" (submit)="onSubmit(productForm.value)">
+                <div class="form-group">
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    name="name" 
+                    placeholder="name"
+                    [(ngModel)]="newProduct.name"
+                    >
+
+                </div>
+                <div class="form-group">
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    name="price"
+                    placeholder="price"
+                    [(ngModel)]="newProduct.price">
+                    
+                </div>
+                <div class="form-group">
+                    <input
+                    type="text"
+                    class="form-control" 
+                    name="decs"
+                    placeholder="description"
+                    [(ngModel)]="newProduct.desc">
+                    
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </form>
+            <div class="col-md-6">
+                <table class="table table-hover">
+                    <thead>
+                        <tr >
+                            <td>ID</td>
+                            <td>Ten Sp</td>
+                            <td>Gia Sp</td>
+                            <td>Mo ta SP</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of products">   
+                            <td>{{product.id}}</td>
+                            <td>{{product.name}}</td>
+                            <td>{{product.price}}</td>
+                            <td>{{product.desc}}</td>
+                            <td><a [routerLink]="['/product', product.id] ">
+                                <button class="btn btn-primary">Xem chi tiet</button>
+                            </a></td>
+                            <td><a [routerLink]="['/product', product.id,'edit']" ><button class="btn btn-warning">Chinh sua</button></a></td>
+                            <td><button (click)="onDelete(product.id)" class="btn-danger">Xoa</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

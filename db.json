@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "name": "adwad",
+      "decs": "awddaw",
+      "price": "daw",
+      "id": 3
+    },
+    {
+      "name": "awd",
+      "decs": "dawd",
+      "price": "0adw",
+      "id": 4
+    },
+    {
+      "name": "I PHONE 13",
+      "decs": "APPLE",
+      "price": "2000000",
+      "id": 5
+    },
+    {
+      "name": "AWD",
+      "decs": "DAWD",
+      "price": "0DDDD",
+      "id": 6
+    },
+    {
+      "name": "",
+      "decs": "",
+      "price": 0,
+      "id": 7
+    }
+  ]
+}
